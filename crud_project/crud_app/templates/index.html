@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Person Records</title>
+</head>
+<body>
+    <h1>All Persons</h1>
+    <a href="{% url 'insert' %}"><button>Insert</button></a>
+    <table border="1">
+        <tr>
+            <th>ID</th>   
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+        {% for person in persons %}
+        <tr>
+            <td>{{ person.id }}</td>
+            <td>{{ person.name }}</td>
+            <td>{{ person.email }}</td>
+            <td>{{ person.phone }}</td>
+            <td>
+<a href="{% url 'update' person.id %}"> <button>Update</button></a>
+<a href="{% url 'delete' person.id %}"><button>Delete</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
